@@ -53,21 +53,42 @@ body {
 }
 
 @media screen and (max-width: 400px) {
+  #bll {
+    width: 80%;
+    margin-left: 10%;
+  }
+  #graph {
+    width: 80%;
+    margin-left: 10%;
+  }
   .bill-container input {
     width: 100%;
   }
   .bill-container {
-      width: 80%;
-      margin-left: 10%;
+    width: 80%;
+    margin-left: 10%;
   }
 }
 
 .bill-list {
-    text-align: center;
-    width: 45%;
-    margin-left: 25%;
-    background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    height: 400px;
-    margin-bottom: 40px;
-  }
+  text-align: center;
+  width: 45%;
+  margin-left: 25%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  height: 400px;
+  margin-bottom: 40px;
+}
+.bill-graph {
+  text-align: center;
+  width: 45%;
+  margin-left: 25%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  height: 400px;
+  margin-bottom: 40px;
+}
+
+.bill-show {
+  margin-top: 20px;
+}

@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import LineChart from "react-linechart";
-import { Bar } from "react-chartjs-2";
-import "../../../node_modules/react-linechart/dist/styles.css";
-
+import { Bar, Pie, Doughnut } from "react-chartjs-2";
 import "./Bill.css";
 
 function validate(billFor, amount) {
@@ -22,7 +19,8 @@ class Bills extends Component {
       amount: "",
       bill: "",
       newAmount: "",
-      bills: {}
+      bills: {},
+      showBills: []
     };
   }
 
@@ -30,6 +28,9 @@ class Bills extends Component {
     axios
       .get("/api/bills")
       .then(response => {
+        this.setState({
+          showBills: response.data
+        });
         const bills = response.data;
         let billname = [];
         let amount = [];
@@ -42,7 +43,7 @@ class Bills extends Component {
             labels: billname,
             datasets: [
               {
-                label: "Bills for 2019 expenditure",
+                label: "Bills for 2019 Expenditure",
                 data: amount,
                 backgroundColor: [
                   "rgba(250,55,197,0.6)",
@@ -55,7 +56,6 @@ class Bills extends Component {
             ]
           }
         });
-        console.log(response.data);
       })
       .catch(error => {
         throw error;
@@ -103,6 +103,9 @@ class Bills extends Component {
   };
 
   render() {
+    let { bills } = this.state;
+    let { showBills } = this.state;
+    console.log(showBills);
     const errors = validate(this.state.billFor, this.state.amount);
     const isDisabled = Object.keys(errors).some(x => errors[x]);
     return (
@@ -143,10 +146,22 @@ class Bills extends Component {
             </form>
           </div>
           <div className="bill-list">
-            <Bar
-              data={this.state.bills}
-              options={{ maintainAspectRatio: false }}
-            />
+            {showBills.map(bill => (
+              <div key={bill._id} className="bill-show">
+                <div className="bills">
+                  <span>{bill.billFor}</span> <span>{bill.amount}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div id="graph" className="bill-graph">
+            <Pie data={bills} options={{ maintainAspectRatio: false }} />
+          </div>
+          <div id="graph" className="bill-graph">
+            <Doughnut data={bills} options={{ maintainAspectRatio: false }} />
+          </div>
+          <div id="graph" className="bill-graph">
+            <Bar data={bills} options={{ maintainAspectRatio: false }} />
           </div>
         </div>
       </div>

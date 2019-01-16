@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css?family=Fjalla+One");
+body {
+  background-color: #f7f7f7;
+}
+.bill-container {
+  text-align: center;
+  width: 45%;
+  margin-left: 25%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  height: 400px;
+  margin-bottom: 40px;
+}
+.bill-container h1 {
+  padding: 20px;
+}
+
+.bill-container form input.error {
+  border-color: red;
+}
+
+.bill-container form {
+  margin-bottom: 10px;
+}
+.bill-container form button:disabled {
+  background-color: #dbf99f;
+  color: #333;
+}
+
+.bill-container form button {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: "Fjalla One", sans-serif;
+}
+.bill-container input {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #f7f7f7 none repeat scroll 0 0;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 40px;
+  line-height: 50px;
+}
+
+@media screen and (max-width: 400px) {
+  .bill-container input {
+    width: 100%;
+  }
+  .bill-container {
+      width: 80%;
+      margin-left: 10%;
+  }
+}
+
+.bill-list {
+    text-align: center;
+    width: 45%;
+    margin-left: 25%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    height: 400px;
+    margin-bottom: 40px;
+  }

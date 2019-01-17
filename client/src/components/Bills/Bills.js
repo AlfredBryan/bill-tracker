@@ -151,7 +151,7 @@ class Bills extends Component {
               </button>
             </form>
           </div>
-          <div className="created">
+          <div id="created" className="created">
             <div className="created1">{bill}</div>
             <div className="created2">{newAmount}</div>
             <div className="created3">{moment(date).format("dddd, MMMM Do YYYY, h:mm:ss a")}</div>

@@ -7,7 +7,7 @@ router.get("/bills", (req, res) => {
   Bill.find({}, (err, bills) => {
     if (err) res.status(404).send(err);
     res.status(200).send(bills);
-  }).limit(5);
+  }).limit(6);
 });
 
 router.post("/bills/add", (req, res) => {

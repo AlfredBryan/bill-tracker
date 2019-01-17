@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Bar, Pie, Doughnut } from "react-chartjs-2";
+import moment from "moment/moment.js";
 import "./Bill.css";
 
 function validate(billFor, amount) {
@@ -20,7 +21,8 @@ class Bills extends Component {
       bill: "",
       newAmount: "",
       bills: {},
-      showBills: []
+      showBills: [],
+      date: ""
     };
   }
 
@@ -50,7 +52,8 @@ class Bills extends Component {
                   "rgba(155,100,210,0.6)",
                   "rgba(90,178,255,0.6)",
                   "rgba(240,134,67,0.6)",
-                  "rgba(120,120,120,0.6)"
+                  "rgba(120,120,120,0.6)",
+                  "lightblue"
                 ]
               }
             ]
@@ -90,6 +93,9 @@ class Bills extends Component {
         this.setState({
           newAmount: response.data.amount
         });
+        this.setState({
+          date: response.data.date
+        });
       })
       .catch(error => {
         console.log(error);
@@ -103,7 +109,7 @@ class Bills extends Component {
   };
 
   render() {
-    let { bills } = this.state;
+    let { bills, date, newAmount, bill } = this.state;
     let { showBills } = this.state;
     console.log(showBills);
     const errors = validate(this.state.billFor, this.state.amount);
@@ -145,15 +151,20 @@ class Bills extends Component {
               </button>
             </form>
           </div>
-          <div className="bill-list">
-            {showBills.map(bill => (
-              <div key={bill._id} className="bill-show">
-                <div className="bills">
-                  <span>{bill.billFor}</span> <span>{bill.amount}</span>
-                </div>
-              </div>
-            ))}
+          <div className="created">
+            <div className="created1">{bill}</div>
+            <div className="created2">{newAmount}</div>
+            <div className="created3">{moment(date).format("dddd, MMMM Do YYYY, h:mm:ss a")}</div>
           </div>
+          {showBills.map(bill => (
+            <div key={bill._id} className="bill-show" id="bill-show">
+              <div className="bills1">{bill.billFor}</div>
+              <div className="bills2">{bill.amount}</div>
+              <div className="bills3">
+                {moment(bill.date).format("dddd, MMMM Do YYYY, h:mm:ss a")}
+              </div>
+            </div>
+          ))}
           <div id="graph" className="bill-graph">
             <Pie data={bills} options={{ maintainAspectRatio: false }} />
           </div>

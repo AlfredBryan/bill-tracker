@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Fjalla+One");
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
 body {
   background-color: #f7f7f7;
 }
@@ -68,6 +69,10 @@ body {
     width: 80%;
     margin-left: 10%;
   }
+  #bill-show {
+    width: 80%;
+    margin-left: 10%;
+  }
 }
 
 .bill-list {
@@ -89,6 +94,81 @@ body {
   margin-bottom: 40px;
 }
 
+
 .bill-show {
-  margin-top: 20px;
+  background-color: white;
+  padding: 10px;
+  margin-top: 5px;
+  display: flex;
+  text-align: center;
+  width: 45%;
+  margin-left: 25%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+.bills1 {
+  text-transform: lowercase;
+  font-family: "Crimson Text", serif;
+  color: #3a6186;
+}
+.bills1::first-letter {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.bills2 {
+  margin-left: 7px;
+  text-transform: lowercase;
+  font-family: "Crimson Text", serif;
+  color: #3a6186;
+}
+.bills2::first-letter {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.bills3 {
+  margin-left: 7px;
+  text-transform: lowercase;
+  font-family: "Crimson Text", serif;
+  color: #b29999;
+  font-weight: bold;
+}
+
+.created {
+  background-color: white;
+  padding: 10px;
+  margin-top: 5px;
+  display: flex;
+  text-align: center;
+  width: 45%;
+  margin-left: 25%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+.created1 {
+  text-transform: lowercase;
+  font-family: "Crimson Text", serif;
+  color: #3a6186;
+}
+.created1::first-letter {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.created2 {
+  margin-left: 7px;
+  text-transform: lowercase;
+  font-family: "Crimson Text", serif;
+  color: #3a6186;
+}
+.created2::first-letter {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.created3 {
+  margin-left: 7px;
+  text-transform: lowercase;
+  font-family: "Crimson Text", serif;
+  color: #b29999;
+  font-weight: bold;
 }
